@@ -42,6 +42,7 @@ public class MyQueue <T> {
     public T addElem(T obj) {
         if (myQueue.size() < size) {
             myQueue.offer(obj);
+            
         }else {
             myQueue.poll();
             myQueue.offer(obj);
