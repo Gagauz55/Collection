@@ -2,7 +2,7 @@ package HomeTask_2_2;
 
 import java.util.*;
 
-public class MyQueue <T> {
+public class MyQueue<T> {
     int size;
     int check;
     Queue<T> myQueue = new LinkedList<T>();
@@ -10,7 +10,7 @@ public class MyQueue <T> {
 
     public int sizeQueue() {
         System.out.println("Please enter Queue size:");
-        intFromScanner(sc);
+        intFromScanner();
         size = check;
 
         if (size <= 0) {
@@ -26,13 +26,27 @@ public class MyQueue <T> {
     }
 
 
-    public int intFromScanner(Scanner sc) {
-        while (!sc.hasNextInt()) {
+    public int intFromScanner() {
+        int i;
+        try {
+            i = sc.nextInt();
+
+        } catch (InputMismatchException e) {
             System.err.println("Please enter integer!");
             sc.next();
+            i = intFromScanner();
+
         }
-        return check = sc.nextInt();
+        return check = i;
     }
+
+
+    //while (!sc.hasNextInt()) {
+    //  System.err.println("Please enter integer!");
+    //sc.next();
+    //  }
+    // return check = sc.nextInt();
+    //  }
 
     public void displayQueue() {
         System.out.println(myQueue);
@@ -42,14 +56,14 @@ public class MyQueue <T> {
     public T addElem(T obj) {
         if (myQueue.size() < size) {
             myQueue.offer(obj);
-            
-        }else {
+
+        } else {
             myQueue.poll();
             myQueue.offer(obj);
         }
         return obj;
     }
-        }
+}
 
 
 
