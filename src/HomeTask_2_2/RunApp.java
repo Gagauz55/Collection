@@ -1,5 +1,4 @@
 package HomeTask_2_2;
-
 import java.util.*;
 
 /**
