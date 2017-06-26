@@ -26,7 +26,7 @@ public class RunApp {
         Scanner sc = new Scanner(System.in);
 
         MyQueue<Integer> run = new MyQueue<Integer>();
-        run.sizeQueue();
+        run.size();
 
 
         boolean test;
