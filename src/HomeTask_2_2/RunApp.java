@@ -1,4 +1,5 @@
 package HomeTask_2_2;
+
 import java.util.*;
 
 /**
@@ -18,43 +19,21 @@ import java.util.*;
  * Результатом выполнения задания должен быть репозиторий с коллекцией, классом, тестирующим данную коллекцию,
  * описанием задания и README файлом с инструкцией по запуску приложения
  * <p>
- * Trunov Dmitry/
+ * Trunov Dmitry
  */
 public class RunApp {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        MyQueue<Integer> run = new MyQueue<Integer>();
-        run.size();
+        MyQueue<Integer> myQueueRun = new MyQueue<Integer>();
+
+        myQueueRun.size();
+        myQueueRun.queueCreate();
 
 
-        boolean test;
-        do {
-            System.out.println("Enter the elements of collection. For quit enter 0");
-
-            Integer choice=0;
-            run.intFromScanner();
-            choice=run.check;
-
-            if (choice.equals(0)) {
-                test = false;
-                run.displayQueue();
-                return;
-            } else {
-                run.addElem(choice);
-                run.displayQueue();
-                test = true;
-            }
-
-
-        } while (test = true);
     }
 }
-
-
-
-
 
 
 

@@ -2,68 +2,93 @@ package HomeTask_2_2;
 
 import java.util.*;
 
+
 public class MyQueue<T> extends AbstractQueue {
+
     int value;
     int check;
-    Queue<T> myQueue = new LinkedList<T>();
+
+    public MyQueue() {
+        int value = 0;
+        int check = 0;
+        int element = 0;
+    }
+
+
+    Queue<T> queue = new LinkedList<>();
+    CheckException checkException = new CheckException();
     Scanner sc = new Scanner(System.in);
+
 
     @Override
     public int size() {
 
         System.out.println("Please enter Queue size:");
-        intFromScanner();
-        value = check;
+        checkException.intFromScanner();
+        value = checkException.check;
 
         if (value <= 0) {
             System.out.println("Your value incorrect, default value is 16");
             value = 16;
         } else {
             System.out.println("Queue size is:" + " " + value);
-            value = check;
+            value = checkException.check;
 
         }
         return value;
 
     }
 
+    public void queueCreate() {
+        boolean test;
+        do {
+            System.out.println("Enter the elements of collection. For quit enter 0");
 
-    public int intFromScanner() {
-        int i;
-        try {
-            i = sc.nextInt();
+            Integer choice = 0;
+            checkException.intFromScanner();
+            choice = checkException.check;
 
-        } catch (InputMismatchException e) {
-            System.err.println("Please enter integer!");
-            sc.next();
-            i = intFromScanner();
+            if (choice.equals(0)) {
+                test = false;
+                displayQueue();
+                return;
+            } else {
+                addElem((T) choice);
+                displayQueue();
+                test = true;
+            }
 
-        }
-        return check = i;
+
+        } while (test = true);
+
     }
 
 
-    //while (!sc.hasNextInt()) {
-    //  System.err.println("Please enter integer!");
-    //sc.next();
-    //  }
-    // return check = sc.nextInt();
-    //  }
-
     public void displayQueue() {
-        System.out.println(myQueue);
+        System.out.println(queue.toString());
     }
 
 
     public T addElem(T obj) {
-        if (myQueue.size() < value) {
-            myQueue.offer(obj);
+        if (queue.size() < value) {
+            queue.offer((T) obj);
 
         } else {
-            myQueue.poll();
-            myQueue.offer(obj);
+            queue.poll();
+            queue.offer(obj);
         }
         return obj;
+    }
+
+
+    @Override
+    public Iterator iterator() {
+        return null;
+    }
+
+    @Override
+    public boolean add(Object o) {
+        return false;
     }
 
     @Override
@@ -72,7 +97,17 @@ public class MyQueue<T> extends AbstractQueue {
     }
 
     @Override
+    public Object remove() {
+        return null;
+    }
+
+    @Override
     public Object poll() {
+        return null;
+    }
+
+    @Override
+    public Object element() {
         return null;
     }
 
@@ -80,14 +115,5 @@ public class MyQueue<T> extends AbstractQueue {
     public Object peek() {
         return null;
     }
-
-    @Override
-    public Iterator iterator() {
-        return null;
-    }
-
-
 }
-
-
 
