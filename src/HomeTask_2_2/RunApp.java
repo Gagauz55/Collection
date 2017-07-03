@@ -28,7 +28,7 @@ public class RunApp {
 
         MyQueue<Integer> myQueueRun = new MyQueue<Integer>();
 
-        myQueueRun.size();
+        myQueueRun.setSize();
         myQueueRun.queueCreate();
 
 

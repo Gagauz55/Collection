@@ -5,11 +5,11 @@ import java.util.*;
 
 public class MyQueue<T> extends AbstractQueue {
 
-    int value;
+    private int size;
     int check;
 
     public MyQueue() {
-        int value = 0;
+
         int check = 0;
         int element = 0;
     }
@@ -20,24 +20,47 @@ public class MyQueue<T> extends AbstractQueue {
     Scanner sc = new Scanner(System.in);
 
 
-    @Override
-    public int size() {
+    public void setSize() {
 
         System.out.println("Please enter Queue size:");
         checkException.intFromScanner();
-        value = checkException.check;
+        size = checkException.check;
 
-        if (value <= 0) {
+        if (size <= 0) {
             System.out.println("Your value incorrect, default value is 16");
-            value = 16;
+            size = 16;
         } else {
-            System.out.println("Queue size is:" + " " + value);
-            value = checkException.check;
+            System.out.println("Queue size is:" + " " + size);
+            size = checkException.check;
 
         }
-        return value;
+
 
     }
+
+    public int getSize() {
+        this.size = size;
+        return size;
+    }
+
+
+//    @Override
+//    public int size() {
+//
+//        System.out.println("Please enter Queue size:");
+//        checkException.intFromScanner();
+//        value = checkException.check;
+//
+//        if (value <= 0) {
+//            System.out.println("Your value incorrect, default value is 16");
+//            value = 16;
+//        } else {
+//            System.out.println("Queue size is:" + " " + value);
+//            value = checkException.check;
+//
+//        }
+//        return null;
+
 
     public void queueCreate() {
         boolean test;
@@ -70,7 +93,7 @@ public class MyQueue<T> extends AbstractQueue {
 
 
     public T addElem(T obj) {
-        if (queue.size() < value) {
+        if (queue.size() < getSize()) {
             queue.offer((T) obj);
 
         } else {
@@ -84,6 +107,11 @@ public class MyQueue<T> extends AbstractQueue {
     @Override
     public Iterator iterator() {
         return null;
+    }
+
+    @Override
+    public int size() {
+        return 0;
     }
 
     @Override
